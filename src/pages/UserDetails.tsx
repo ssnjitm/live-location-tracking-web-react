@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { doc, collection, query, where, orderBy, limit, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { UserMap } from '../components/UserMap';
-import { ArrowLeft, Clock, ShieldAlert, ShieldCheck, History, ScrollText } from 'lucide-react';
+import { ArrowLeft, ShieldAlert, ShieldCheck, History, ScrollText } from 'lucide-react';
 
 interface LocationHistory {
   id: string;

@@ -8,13 +8,11 @@ interface SearchBoxProps {
 export const SearchBox: React.FC<SearchBoxProps> = ({ onLocationSelect }) => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
 
   const searchLocation = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;
 
-    setLoading(true);
     try {
       const response = await fetch(
         `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=5`,
@@ -28,8 +26,6 @@ export const SearchBox: React.FC<SearchBoxProps> = ({ onLocationSelect }) => {
       setResults(data);
     } catch (error) {
       console.error('Search error:', error);
-    } finally {
-      setLoading(false);
     }
   };
 
